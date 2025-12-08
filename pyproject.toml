@@ -15,3 +15,9 @@ advent-of-code-2025 = "advent_of_code_2025:main"
 [build-system]
 requires = ["uv_build>=0.9.7,<0.10.0"]
 build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "ipython>=9.8.0",
+    "rich>=14.2.0",
+]
