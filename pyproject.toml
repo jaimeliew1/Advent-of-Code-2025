@@ -7,7 +7,9 @@ authors = [
     { name = "Jaime Liew", email = "jaimeliew1@gmail.com" }
 ]
 requires-python = ">=3.13"
-dependencies = []
+dependencies = [
+    "scipy>=1.16.3",
+]
 
 [project.scripts]
 advent-of-code-2025 = "advent_of_code_2025:main"
