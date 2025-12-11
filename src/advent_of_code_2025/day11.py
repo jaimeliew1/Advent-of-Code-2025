@@ -1,15 +1,9 @@
 from functools import cache
 
 
-def parse(fn: str) -> dict:
-    map = {"out": []}
-    for line in open(fn):
-        key, *vals = line.split()
-        map[key[:-1]] = vals
-    return map
-
-
-def solve(map: dict) -> tuple[float, float]:
+def solve(fn: str) -> tuple[float, float]:
+    map = {key[:-1]: vals for key, *vals in [line.split() for line in open(fn)]} | {"out": []}
+    
     @cache
     def npaths(start: str, end: str) -> int:
         return 1 if end in map[start] else sum(npaths(x, end) for x in map[start])
@@ -20,4 +14,4 @@ def solve(map: dict) -> tuple[float, float]:
 
 
 if __name__ == "__main__":
-    print(solve(parse("inputs/day11.txt")))
+    print(solve("inputs/day11.txt"))
